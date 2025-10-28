@@ -1,14 +1,8 @@
 # `f-ts`
 
-> Move faster
+> CLI to move faster in software projects
 
-Main CLI is written in Rust and is located [here](https://github.com/1focus-ai/f).
-
-This is exploration of this 'move fast' CLI in TS.
-
-Goal of CLI is to have various functionality to move faster in software projects. With deep integration into [1focus.ai](https://1focus.ai).
-
-`f` stands for `focus`.
+Main CLI is written in Rust and is located [here](https://github.com/1focus-ai/f). This is exploration of this 'move fast' CLI in TS.
 
 ## Install CLI
 
