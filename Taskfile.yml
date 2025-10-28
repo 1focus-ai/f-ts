@@ -1,0 +1,44 @@
+version: '3'
+
+vars:
+  package_name: "@1focus/f"
+
+tasks:
+  default:
+    desc: List available tasks.
+    silent: true
+    cmds:
+      - task --list
+
+  dev:
+    desc: Run the CLI locally (pass args after `--`).
+    cmds:
+      - |
+        set -euo pipefail
+        bun run dev{{if .CLI_ARGS}} -- {{.CLI_ARGS}}{{end}}
+
+  publish_preview:
+    desc: Preview npm publish output for {{.package_name}} without uploading.
+    cmds:
+      - |
+        set -euo pipefail
+        npm pkg fix
+        bun install
+        npm publish --dry-run
+
+  publish:
+    desc: Publish {{.package_name}} to npm (requires npm auth).
+    cmds:
+      - |
+        set -euo pipefail
+        bun run scripts/bump-version.ts patch
+        npm pkg fix
+        bun install
+        npm publish --access public
+
+  install:local:
+    desc: Install the CLI to ~/bin/f using publish.ts.
+    cmds:
+      - |
+        set -euo pipefail
+        bun run publish.ts

@@ -1,0 +1,30 @@
+{
+  "name": "@1focus/f",
+  "version": "0.1.5",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "publish:dry-run": "npm publish --dry-run",
+    "publish:package": "npm publish --access public"
+  },
+  "bin": {
+    "f": "bin/f"
+  },
+  "files": [
+    "bin",
+    "src",
+    "tsconfig.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "prettier": {
+    "semi": false
+  }
+}
